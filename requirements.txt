@@ -1,0 +1,3 @@
+Program requires the installation of the following packages -  cv2, time, os, numpy as np, threading
+as well as a functioning camera, preferably an external usb webcam as it makes it simpler to correctly position it to see the cards from
+the optimal angle
