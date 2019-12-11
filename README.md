@@ -26,6 +26,12 @@ that the origional program was written for a Picam, rather than an actual webcam
 VideoStream.py including drastically lowering the frame rate and exposure. Even so, I've found that the program requires a dark background,
 indirect lighting, and as close to a top down perspective as possible to reliably work.
 
+Around line 49 of VideoStream.py you will notice the use of cv2.VideoCapture() to access the webcamera for the program. This function
+takes in a video index that tells it where to look to find the camera for the program to use. Typically if a computer has a built in 
+webcam it will be designated as index 0, and external web cams will start at index 1. Unfortunately I have been running into an issue
+where the index of my external cam changes seemingly at random. To get around this a while loop cycles through all available indexes until a valid camera is found. For some reason the index of my computers built in cam is at 1, therefore this loop starts at 2 and goes up. If the video index of your camera is 0 or 1 you will need to change this code to more quickly find it. In its current state the code
+will eventually loop back around to the beginning of the index but it could take several minutes for this to happen.
+
 Concerning the logic of playing blackjack, the program follows a simplified table of blackjack hands that assumes the dealer standing at
 a soft 17 and only using a single deck. The program also does not support splitting, as getting it to recognize two different player 
 hands at once would require splitting the screen vertically as well as horizontally which would reduce the amount of space avaliable
